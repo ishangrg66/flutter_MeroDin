@@ -54,10 +54,10 @@ class _SignUpPageState extends State<SignUpPage> {
       },
       builder: (context, state) {
         return Scaffold(
-          appBar: AppBar(title: const Text('Create Account')),
+          appBar: AppBar(title: const Text('एकाउन्ट बनाउनुस्')),
           body: SingleChildScrollView(
             child: Padding(
-              padding: const EdgeInsets.all(16),
+              padding: const EdgeInsets.all(24),
               child: Form(
                 key: _formKey,
                 child: Column(
@@ -70,10 +70,10 @@ class _SignUpPageState extends State<SignUpPage> {
                           padding: const EdgeInsets.all(8.0),
                           child: Center(
                             child: const Text(
-                              'Join Us',
+                              'हामीसँग जोडिनुस्',
                               textAlign: TextAlign.center,
                               style: TextStyle(
-                                fontSize: 26, // slightly bigger
+                                fontSize: 22, // slightly bigger
                                 fontWeight:
                                     FontWeight.bold, // stronger emphasis
                                 color: Color.fromARGB(
@@ -91,18 +91,18 @@ class _SignUpPageState extends State<SignUpPage> {
                           thickness: 2.6,
                           color: Color.fromARGB(255, 40, 53, 185),
                           height: 4,
-                          endIndent: 150,
-                          indent: 180,
+                          endIndent: 108,
+                          indent: 150,
                         ),
-                        const SizedBox(height: 22), // more breathing space
+                        const SizedBox(height: 20), // more breathing space
                         const Text(
-                          'Create your account to get started',
+                          'शुरु गर्न आफ्नो खाता बनाउनुहोस्।',
                           textAlign: TextAlign.center,
                           style: TextStyle(
-                            fontSize: 16,
+                            fontSize: 18,
                             fontWeight: FontWeight.w400,
                             color: Colors.black54,
-                            height: 1.5,
+                            height: 1.8,
                           ),
                         ),
                         const SizedBox(
@@ -117,7 +117,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         boxShadow: [
                           BoxShadow(
                             color: Colors.black12,
-                            blurRadius: 10,
+                            blurRadius: 12,
                             offset: Offset(4, 4),
                           ),
                         ],
@@ -125,7 +125,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       child: TextFormField(
                         controller: _firstNameController,
                         decoration: InputDecoration(
-                          labelText: 'First Name',
+                          labelText: 'पहिलो नाम',
                           filled: true,
                           fillColor: Colors.white,
                           border: OutlineInputBorder(
@@ -144,8 +144,9 @@ class _SignUpPageState extends State<SignUpPage> {
                             ),
                           ),
                         ),
-                        validator: (value) =>
-                            value!.isEmpty ? 'Enter your first name' : null,
+                        validator: (value) => value!.isEmpty
+                            ? 'तपाईंको पहिलो नाम लेख्नुहोस्'
+                            : null,
                       ),
                     ),
                     const SizedBox(height: 16),
@@ -165,7 +166,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       child: TextFormField(
                         controller: _lastNameController,
                         decoration: InputDecoration(
-                          labelText: 'Last Name',
+                          labelText: 'थर',
                           filled: true,
                           fillColor: Colors.white,
                           border: OutlineInputBorder(
@@ -185,7 +186,7 @@ class _SignUpPageState extends State<SignUpPage> {
                           ),
                         ),
                         validator: (value) =>
-                            value!.isEmpty ? 'Enter your last name' : null,
+                            value!.isEmpty ? 'तपाईंको थर लेख्नुहोस्' : null,
                       ),
                     ),
                     const SizedBox(height: 16),
@@ -205,7 +206,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       child: TextFormField(
                         controller: _userNameController,
                         decoration: InputDecoration(
-                          labelText: 'Full Name',
+                          labelText: 'पुरा नाम',
                           filled: true,
                           fillColor: Colors.white,
                           border: OutlineInputBorder(
@@ -224,8 +225,9 @@ class _SignUpPageState extends State<SignUpPage> {
                             ),
                           ),
                         ),
-                        validator: (value) =>
-                            value!.isEmpty ? 'Enter your name' : null,
+                        validator: (value) => value!.isEmpty
+                            ? 'तपाईंको पूरा नाम लेख्नुहोस्'
+                            : null,
                       ),
                     ),
                     const SizedBox(height: 16),
@@ -245,7 +247,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       child: TextFormField(
                         controller: _emailController,
                         decoration: InputDecoration(
-                          labelText: 'Email',
+                          labelText: 'इमेल',
                           filled: true,
                           fillColor: Colors.white,
                           border: OutlineInputBorder(
@@ -265,7 +267,7 @@ class _SignUpPageState extends State<SignUpPage> {
                           ),
                         ),
                         validator: (value) =>
-                            value!.isEmpty ? 'Enter your email' : null,
+                            value!.isEmpty ? 'तपाईंको इमेल लेख्नुहोस्' : null,
                       ),
                     ),
                     const SizedBox(height: 16),
@@ -286,7 +288,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         controller: _passwordController,
                         obscureText: _obscurePassword,
                         decoration: InputDecoration(
-                          labelText: 'Password',
+                          labelText: 'पासवर्ड',
                           filled: true,
                           fillColor: Colors.white,
                           border: OutlineInputBorder(
@@ -319,7 +321,7 @@ class _SignUpPageState extends State<SignUpPage> {
                           ),
                         ),
                         validator: (value) => value!.length < 6
-                            ? 'Password must be at least 6 characters'
+                            ? 'पासवर्ड कम्तीमा ६ वटा अक्षर हुनु पर्छ।'
                             : null,
                       ),
                     ),
@@ -360,7 +362,7 @@ class _SignUpPageState extends State<SignUpPage> {
                           borderRadius: BorderRadius.circular(12),
                         ),
                       ),
-                      child: const Text('Create Account'),
+                      child: const Text('खाता बनाउनुहोस्'),
                     ),
                     const SizedBox(height: 16),
 
@@ -374,7 +376,7 @@ class _SignUpPageState extends State<SignUpPage> {
                             ),
                           );
                         },
-                        child: const Text("Already have an account? Login"),
+                        child: const Text("पहिले नै खाता छ? लगइन गर्नुहोस्"),
                       ),
                     ),
                   ],

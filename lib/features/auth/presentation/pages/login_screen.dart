@@ -6,6 +6,7 @@ import 'package:mero_din_app/features/auth/presentation/bloc/auth_event.dart';
 import 'package:mero_din_app/features/auth/presentation/bloc/auth_state.dart';
 import 'package:mero_din_app/features/auth/presentation/pages/signup_screen.dart';
 import 'package:mero_din_app/features/dashboard/dashboard_screen.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -45,7 +46,10 @@ class _LoginPageState extends State<LoginPage> {
           body: Container(
             decoration: const BoxDecoration(
               gradient: LinearGradient(
-                colors: [Color.fromARGB(255, 90, 143, 208), Color.fromARGB(255, 139, 139, 211)],
+                colors: [
+                  Color.fromARGB(255, 90, 143, 208),
+                  Color.fromARGB(255, 139, 139, 211),
+                ],
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
               ),
@@ -92,13 +96,20 @@ class _LoginPageState extends State<LoginPage> {
                             ),
                           ),
                           const SizedBox(height: 30),
-                          const Text(
+                          Text(
                             'मेरो दिन',
-                            style: TextStyle(
-                              fontSize: 28,
-                              fontWeight: FontWeight.bold,
-                              letterSpacing: 1.2,
-                              color: Colors.white, // contrast against gradient
+                            style: GoogleFonts.montserrat(
+                              fontWeight: FontWeight.w800,
+                              fontSize: 38,
+                              color: const Color.fromARGB(255, 255, 255, 255),
+                              // letterSpacing: ,
+                              shadows: [
+                                Shadow(
+                                  offset: Offset(2, 2),
+                                  blurRadius: 3,
+                                  color: Colors.black45,
+                                ),
+                              ],
                             ),
                           ),
                         ],
@@ -110,7 +121,7 @@ class _LoginPageState extends State<LoginPage> {
                             'Make Today Count',
                             textAlign: TextAlign.center,
                             style: TextStyle(
-                              fontSize: 24,
+                              fontSize: 20,
                               fontWeight: FontWeight.w700,
                               color: Colors.white,
                               letterSpacing: 0.5,
@@ -121,7 +132,7 @@ class _LoginPageState extends State<LoginPage> {
                             'One app to plan, track, and celebrate your day.',
                             textAlign: TextAlign.center,
                             style: TextStyle(
-                              fontSize: 16,
+                              fontSize: 14,
                               fontWeight: FontWeight.w400,
                               color: Colors.white70,
                               height: 1.5,
@@ -151,7 +162,7 @@ class _LoginPageState extends State<LoginPage> {
                       TextFormField(
                         controller: _emailController,
                         decoration: InputDecoration(
-                          labelText: 'Email',
+                          labelText: 'इमेल',
                           filled: true,
                           fillColor: Colors.white.withOpacity(0.9),
                           border: OutlineInputBorder(
@@ -164,7 +175,7 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                         ),
                         validator: (value) =>
-                            value!.isEmpty ? 'Enter your email' : null,
+                            value!.isEmpty ? 'तपाईंको इमेल लेख्नुहोस्' : null,
                       ),
                       const SizedBox(height: 16),
 
@@ -173,7 +184,7 @@ class _LoginPageState extends State<LoginPage> {
                         controller: _passwordController,
                         obscureText: _obscurePassword,
                         decoration: InputDecoration(
-                          labelText: 'Password',
+                          labelText: 'पासवर्ड',
                           filled: true,
                           fillColor: Colors.white.withOpacity(0.9),
                           border: OutlineInputBorder(
@@ -198,8 +209,9 @@ class _LoginPageState extends State<LoginPage> {
                             },
                           ),
                         ),
-                        validator: (value) =>
-                            value!.isEmpty ? 'Enter your password' : null,
+                        validator: (value) => value!.isEmpty
+                            ? 'तपाईंको पासवर्ड लेख्नुहोस्।'
+                            : null,
                       ),
                       const SizedBox(height: 24),
 
@@ -228,7 +240,15 @@ class _LoginPageState extends State<LoginPage> {
                                   borderRadius: BorderRadius.circular(12),
                                 ),
                               ),
-                              child: const Text('Login'),
+                              child: const Text(
+                                'Login',
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                  decoration: TextDecoration.none,
+                                  color: Colors.white,
+                                ),
+                              ),
                             ),
                       const SizedBox(height: 16),
 
