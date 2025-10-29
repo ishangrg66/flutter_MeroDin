@@ -174,7 +174,7 @@ class _SchedulePageState extends State<SchedulePage> {
               padding: EdgeInsets.all(16.0),
               child: Text(
                 'यो दिनको लागि कुनै तालिका छैन ।',
-                style: TextStyle(color: Colors.grey),
+                style: TextStyle(color: Color.fromARGB(255, 145, 144, 144)),
               ),
             ),
           ...selectedSchedules.map(

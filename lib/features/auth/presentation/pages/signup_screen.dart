@@ -5,6 +5,7 @@ import 'package:mero_din_app/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:mero_din_app/features/auth/presentation/bloc/auth_event.dart';
 import 'package:mero_din_app/features/auth/presentation/bloc/auth_state.dart';
 import 'package:mero_din_app/features/auth/presentation/pages/login_screen.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({super.key});
@@ -54,332 +55,413 @@ class _SignUpPageState extends State<SignUpPage> {
       },
       builder: (context, state) {
         return Scaffold(
-          appBar: AppBar(title: const Text('एकाउन्ट बनाउनुस्')),
-          body: SingleChildScrollView(
-            child: Padding(
-              padding: const EdgeInsets.all(24),
-              child: Form(
-                key: _formKey,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Column(
+          body: Container(
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                colors: [
+                  Color.fromARGB(255, 90, 143, 208),
+                  Color.fromARGB(255, 79, 79, 123),
+                ],
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+              ),
+            ),
+            child: SafeArea(
+              child: SingleChildScrollView(
+                child: Padding(
+                  padding: const EdgeInsets.all(24),
+                  child: Form(
+                    key: _formKey,
+                    child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
+                        const SizedBox(height: 4),
+                        Container(
+                          height: 180,
+                          width: 180,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            gradient: const LinearGradient(
+                              colors: [
+                                Color.fromARGB(255, 90, 143, 208),
+                                Color.fromARGB(255, 79, 79, 123),
+                              ],
+                              begin: Alignment.topLeft,
+                              end: Alignment.bottomRight,
+                            ),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black26,
+                                blurRadius: 8,
+                                offset: Offset(0, 4),
+                              ),
+                            ],
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.all(20.0),
+                            child: Image.asset(
+                              "assets/logos/meroDinLogo.png",
+                              fit: BoxFit.contain,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 24),
+
+                        // Title
                         Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Center(
+                          padding: const EdgeInsets.only(top: 10.0),
+                          child: Text(
+                            'मेरो दिन',
+                            style: GoogleFonts.montserrat(
+                              fontWeight: FontWeight.w900,
+                              fontSize: 44,
+                              letterSpacing: 2,
+                              // Add gradient color effect
+                              foreground: Paint()
+                                ..shader = const LinearGradient(
+                                  colors: [
+                                    Color.fromARGB(
+                                      255,
+                                      203,
+                                      239,
+                                      208,
+                                    ), // soft blue
+                                    Color.fromARGB(
+                                      255,
+                                      255,
+                                      255,
+                                      255,
+                                    ), // teal blend
+                                  ],
+                                  begin: Alignment.topLeft,
+                                  end: Alignment.bottomRight,
+                                ).createShader(Rect.fromLTWH(0, 0, 200, 70)),
+                              shadows: const [
+                                Shadow(
+                                  offset: Offset(2, 3),
+                                  blurRadius: 6,
+                                  color: Colors.black45,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 8),
+
+                        // const Text(
+                        //   'सुरु गरौं।',
+                        //   style: TextStyle(
+                        //     fontSize: 22,
+                        //     fontWeight: FontWeight.w800,
+                        //     color: Color.fromARGB(255, 255, 255, 255),
+                        //     letterSpacing: 1.2,
+                        //     shadows: [
+                        //       Shadow(
+                        //         offset: Offset(2, 2),
+                        //         blurRadius: 6,
+                        //         color: Colors.black38,
+                        //       ),
+                        //     ],
+                        //   ),
+                        // ),
+                        const SizedBox(height: 24),
+
+                        //Sign Up Form Section
+                        Align(
+                          alignment: Alignment.topLeft,
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 10.0),
                             child: const Text(
-                              'हामीसँग जोडिनुस्',
-                              textAlign: TextAlign.center,
+                              'खाता बनाउनुहोस्',
                               style: TextStyle(
-                                fontSize: 22, // slightly bigger
-                                fontWeight:
-                                    FontWeight.bold, // stronger emphasis
-                                color: Color.fromARGB(
-                                  255,
-                                  32,
-                                  91,
-                                  164,
-                                ), // accent color
-                                letterSpacing: 0.5,
+                                color: Colors.white,
+                                fontSize: 20,
+                                fontWeight: FontWeight.w700,
                               ),
                             ),
                           ),
                         ),
-                        const Divider(
-                          thickness: 2.6,
-                          color: Color.fromARGB(255, 40, 53, 185),
-                          height: 4,
-                          endIndent: 108,
-                          indent: 150,
-                        ),
-                        const SizedBox(height: 20), // more breathing space
-                        const Text(
-                          'शुरु गर्न आफ्नो खाता बनाउनुहोस्।',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.w400,
-                            color: Colors.black54,
-                            height: 1.8,
+                        const SizedBox(height: 16),
+
+                        // First Name
+                        Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(12),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black12,
+                                blurRadius: 12,
+                                offset: Offset(4, 4),
+                              ),
+                            ],
+                          ),
+                          child: TextFormField(
+                            controller: _firstNameController,
+                            decoration: InputDecoration(
+                              labelText: 'पहिलो नाम',
+                              filled: true,
+                              fillColor: Colors.white.withOpacity(0.9),
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(12),
+                                borderSide: BorderSide.none,
+                              ),
+                              prefixIcon: const Icon(
+                                Icons.person_outline,
+                                color: Colors.grey,
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(12),
+                                borderSide: BorderSide(
+                                  color: Color.fromARGB(255, 158, 224, 156),
+                                  width: 2,
+                                ),
+                              ),
+                            ),
+                            validator: (value) => value!.isEmpty
+                                ? 'तपाईंको पहिलो नाम लेख्नुहोस्'
+                                : null,
                           ),
                         ),
-                        const SizedBox(
-                          height: 22,
-                        ), // more spacing before form fields
+                        const SizedBox(height: 16),
+
+                        // Last Name
+                        Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(12),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black12,
+                                blurRadius: 8,
+                                offset: Offset(0, 4),
+                              ),
+                            ],
+                          ),
+                          child: TextFormField(
+                            controller: _lastNameController,
+                            decoration: InputDecoration(
+                              labelText: 'थर',
+                              filled: true,
+                              fillColor: Colors.white.withOpacity(0.9),
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(12),
+                                borderSide: BorderSide.none,
+                              ),
+                              prefixIcon: const Icon(
+                                Icons.person_outline,
+                                color: Colors.grey,
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(12),
+                                borderSide: BorderSide(
+                                  color: Color.fromARGB(255, 158, 224, 156),
+                                  width: 2,
+                                ),
+                              ),
+                            ),
+                            validator: (value) =>
+                                value!.isEmpty ? 'तपाईंको थर लेख्नुहोस्' : null,
+                          ),
+                        ),
+                        const SizedBox(height: 16),
+
+                        // Full Name
+                        Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(12),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black12,
+                                blurRadius: 8,
+                                offset: Offset(0, 4),
+                              ),
+                            ],
+                          ),
+                          child: TextFormField(
+                            controller: _userNameController,
+                            decoration: InputDecoration(
+                              labelText: 'पुरा नाम',
+                              filled: true,
+                              fillColor: Colors.white.withOpacity(0.9),
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(12),
+                                borderSide: BorderSide.none,
+                              ),
+                              prefixIcon: const Icon(
+                                Icons.person_outline,
+                                color: Colors.grey,
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(12),
+                                borderSide: BorderSide(
+                                  color: Color.fromARGB(255, 158, 224, 156),
+                                  width: 2,
+                                ),
+                              ),
+                            ),
+                            validator: (value) => value!.isEmpty
+                                ? 'तपाईंको पूरा नाम लेख्नुहोस्'
+                                : null,
+                          ),
+                        ),
+                        const SizedBox(height: 16),
+
+                        // Email
+                        Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(12),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black12,
+                                blurRadius: 8,
+                                offset: Offset(0, 4),
+                              ),
+                            ],
+                          ),
+                          child: TextFormField(
+                            controller: _emailController,
+                            decoration: InputDecoration(
+                              labelText: 'इमेल',
+                              filled: true,
+                              fillColor: Colors.white.withOpacity(0.9),
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(12),
+                                borderSide: BorderSide.none,
+                              ),
+                              prefixIcon: const Icon(
+                                Icons.email_outlined,
+                                color: Colors.grey,
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(12),
+                                borderSide: BorderSide(
+                                  color: Color.fromARGB(255, 158, 224, 156),
+                                  width: 2,
+                                ),
+                              ),
+                            ),
+                            validator: (value) => value!.isEmpty
+                                ? 'तपाईंको इमेल लेख्नुहोस्'
+                                : null,
+                          ),
+                        ),
+                        const SizedBox(height: 16),
+
+                        // Password
+                        Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(12),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black12,
+                                blurRadius: 8,
+                                offset: Offset(0, 4),
+                              ),
+                            ],
+                          ),
+                          child: TextFormField(
+                            controller: _passwordController,
+                            obscureText: _obscurePassword,
+                            decoration: InputDecoration(
+                              labelText: 'पासवर्ड',
+                              filled: true,
+                              fillColor: Colors.white.withOpacity(0.9),
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(12),
+                                borderSide: BorderSide.none,
+                              ),
+                              prefixIcon: const Icon(
+                                Icons.lock_outline,
+                                color: Colors.grey,
+                              ),
+                              suffixIcon: IconButton(
+                                icon: Icon(
+                                  _obscurePassword
+                                      ? Icons.visibility_off_outlined
+                                      : Icons.visibility_outlined,
+                                  color: Colors.grey,
+                                ),
+                                onPressed: () {
+                                  setState(() {
+                                    _obscurePassword = !_obscurePassword;
+                                  });
+                                },
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(12),
+                                borderSide: BorderSide(
+                                  color: Color.fromARGB(255, 158, 224, 156),
+                                  width: 2,
+                                ),
+                              ),
+                            ),
+                            validator: (value) => value!.length < 6
+                                ? 'पासवर्ड कम्तीमा ६ वटा अक्षर हुनु पर्छ।'
+                                : null,
+                          ),
+                        ),
+                        const SizedBox(height: 24),
+
+                        // Sign Up Button
+                        ElevatedButton(
+                          onPressed: () {
+                            if (_formKey.currentState!.validate()) {
+                              final userName = _userNameController.text.trim();
+                              final email = _emailController.text.trim();
+                              final password = _passwordController.text.trim();
+                              final firstName = _firstNameController.text
+                                  .trim();
+                              final lastName = _lastNameController.text.trim();
+                              SignUpPayload payload = SignUpPayload(
+                                username: userName,
+                                password: password,
+                                firstName: firstName,
+                                lastName: lastName,
+                                email: email,
+                                userGroupId: '1',
+                              );
+                              context.read<AuthBloc>().add(
+                                SignUpSubmitted(payload),
+                              );
+                            }
+                          },
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.green.shade700,
+                            minimumSize: const Size(double.infinity, 48),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                          ),
+                          child: const Text(
+                            'खाता बनाउनुहोस्',
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 16),
+
+                        // Go to Login
+                        Center(
+                          child: TextButton(
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => LoginPage(),
+                                ),
+                              );
+                            },
+                            child: const Text(
+                              "पहिले नै खाता छ? लगइन गर्नुहोस्",
+                              style: TextStyle(color: Colors.white),
+                            ),
+                          ),
+                        ),
                       ],
                     ),
-                    // First Name
-                    Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(12),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black12,
-                            blurRadius: 12,
-                            offset: Offset(4, 4),
-                          ),
-                        ],
-                      ),
-                      child: TextFormField(
-                        controller: _firstNameController,
-                        decoration: InputDecoration(
-                          labelText: 'पहिलो नाम',
-                          filled: true,
-                          fillColor: Colors.white,
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(12),
-                            borderSide: BorderSide.none,
-                          ),
-                          prefixIcon: const Icon(
-                            Icons.person_outline,
-                            color: Colors.grey,
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(12),
-                            borderSide: BorderSide(
-                              color: Color.fromARGB(255, 158, 224, 156),
-                              width: 2,
-                            ),
-                          ),
-                        ),
-                        validator: (value) => value!.isEmpty
-                            ? 'तपाईंको पहिलो नाम लेख्नुहोस्'
-                            : null,
-                      ),
-                    ),
-                    const SizedBox(height: 16),
-
-                    // Last Name
-                    Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(12),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black12,
-                            blurRadius: 8,
-                            offset: Offset(0, 4),
-                          ),
-                        ],
-                      ),
-                      child: TextFormField(
-                        controller: _lastNameController,
-                        decoration: InputDecoration(
-                          labelText: 'थर',
-                          filled: true,
-                          fillColor: Colors.white,
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(12),
-                            borderSide: BorderSide.none,
-                          ),
-                          prefixIcon: const Icon(
-                            Icons.person_outline,
-                            color: Colors.grey,
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(12),
-                            borderSide: BorderSide(
-                              color: Color.fromARGB(255, 158, 224, 156),
-                              width: 2,
-                            ),
-                          ),
-                        ),
-                        validator: (value) =>
-                            value!.isEmpty ? 'तपाईंको थर लेख्नुहोस्' : null,
-                      ),
-                    ),
-                    const SizedBox(height: 16),
-
-                    // Full Name / Username
-                    Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(12),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black12,
-                            blurRadius: 8,
-                            offset: Offset(0, 4),
-                          ),
-                        ],
-                      ),
-                      child: TextFormField(
-                        controller: _userNameController,
-                        decoration: InputDecoration(
-                          labelText: 'पुरा नाम',
-                          filled: true,
-                          fillColor: Colors.white,
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(12),
-                            borderSide: BorderSide.none,
-                          ),
-                          prefixIcon: const Icon(
-                            Icons.person_outline,
-                            color: Colors.grey,
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(12),
-                            borderSide: BorderSide(
-                              color: Color.fromARGB(255, 158, 224, 156),
-                              width: 2,
-                            ),
-                          ),
-                        ),
-                        validator: (value) => value!.isEmpty
-                            ? 'तपाईंको पूरा नाम लेख्नुहोस्'
-                            : null,
-                      ),
-                    ),
-                    const SizedBox(height: 16),
-
-                    // Email
-                    Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(12),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black12,
-                            blurRadius: 8,
-                            offset: Offset(0, 4),
-                          ),
-                        ],
-                      ),
-                      child: TextFormField(
-                        controller: _emailController,
-                        decoration: InputDecoration(
-                          labelText: 'इमेल',
-                          filled: true,
-                          fillColor: Colors.white,
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(12),
-                            borderSide: BorderSide.none,
-                          ),
-                          prefixIcon: const Icon(
-                            Icons.email_outlined,
-                            color: Colors.grey,
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(12),
-                            borderSide: BorderSide(
-                              color: Color.fromARGB(255, 158, 224, 156),
-                              width: 2,
-                            ),
-                          ),
-                        ),
-                        validator: (value) =>
-                            value!.isEmpty ? 'तपाईंको इमेल लेख्नुहोस्' : null,
-                      ),
-                    ),
-                    const SizedBox(height: 16),
-
-                    // Password
-                    Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(12),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black12,
-                            blurRadius: 8,
-                            offset: Offset(0, 4),
-                          ),
-                        ],
-                      ),
-                      child: TextFormField(
-                        controller: _passwordController,
-                        obscureText: _obscurePassword,
-                        decoration: InputDecoration(
-                          labelText: 'पासवर्ड',
-                          filled: true,
-                          fillColor: Colors.white,
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(12),
-                            borderSide: BorderSide.none,
-                          ),
-                          prefixIcon: const Icon(
-                            Icons.lock_outline,
-                            color: Colors.grey,
-                          ),
-                          suffixIcon: IconButton(
-                            icon: Icon(
-                              _obscurePassword
-                                  ? Icons.visibility_off_outlined
-                                  : Icons.visibility_outlined,
-                              color: Colors.grey,
-                            ),
-                            onPressed: () {
-                              setState(() {
-                                _obscurePassword = !_obscurePassword;
-                              });
-                            },
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(12),
-                            borderSide: BorderSide(
-                              color: Color.fromARGB(255, 158, 224, 156),
-                              width: 2,
-                            ),
-                          ),
-                        ),
-                        validator: (value) => value!.length < 6
-                            ? 'पासवर्ड कम्तीमा ६ वटा अक्षर हुनु पर्छ।'
-                            : null,
-                      ),
-                    ),
-                    const SizedBox(height: 24),
-
-                    ElevatedButton(
-                      onPressed: () {
-                        // Navigator.push(
-                        //   context,
-                        //   MaterialPageRoute(builder: (context) => DashboardPage()),
-                        // );
-                        if (_formKey.currentState!.validate()) {
-                          final userName = _userNameController.text.trim();
-                          final email = _emailController.text.trim();
-                          final password = _passwordController.text.trim();
-                          final firstName = _firstNameController.text.trim();
-                          final lastName = _lastNameController.text.trim();
-                          SignUpPayload payload = SignUpPayload(
-                            username: userName,
-                            password: password,
-                            firstName: firstName,
-                            lastName: lastName,
-                            email: email,
-                            userGroupId: '1',
-                          );
-                          context.read<AuthBloc>().add(
-                            SignUpSubmitted(payload),
-                          );
-                          // ScaffoldMessenger.of(context).showSnackBar(
-                          //   const SnackBar(content: Text('Creating account...')),
-                          // );
-                        }
-                      },
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.green.shade700,
-                        minimumSize: const Size(double.infinity, 48),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                      ),
-                      child: const Text('खाता बनाउनुहोस्'),
-                    ),
-                    const SizedBox(height: 16),
-
-                    Center(
-                      child: TextButton(
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => LoginPage(),
-                            ),
-                          );
-                        },
-                        child: const Text("पहिले नै खाता छ? लगइन गर्नुहोस्"),
-                      ),
-                    ),
-                  ],
+                  ),
                 ),
               ),
             ),

@@ -15,7 +15,7 @@ class HomePage extends StatelessWidget {
           gradient: LinearGradient(
             colors: [
               Color.fromARGB(255, 90, 143, 208),
-              Color.fromARGB(255, 98, 98, 152),
+              Color.fromARGB(255, 79, 79, 123),
             ],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
@@ -25,8 +25,8 @@ class HomePage extends StatelessWidget {
           child: SafeArea(
             child: Padding(
               padding: const EdgeInsets.symmetric(
-                horizontal: 34.0,
-                vertical: 22,
+                horizontal: 30.0,
+                vertical: 20,
               ),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -42,8 +42,8 @@ class HomePage extends StatelessWidget {
                           shape: BoxShape.circle,
                           gradient: const LinearGradient(
                             colors: [
-                              Color(0xFF0072FF),
-                              Color.fromARGB(255, 139, 139, 211),
+                              Color.fromARGB(255, 90, 143, 208),
+                              Color.fromARGB(255, 79, 79, 123),
                             ],
                             begin: Alignment.topLeft,
                             end: Alignment.bottomRight,

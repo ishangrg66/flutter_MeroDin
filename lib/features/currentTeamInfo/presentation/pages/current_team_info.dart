@@ -42,7 +42,7 @@ class _CurrentTeamInfoScreenState extends State<CurrentTeamInfoScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 145, 137, 137),
+      backgroundColor: const Color.fromARGB(255, 90, 143, 208),
       appBar: AppBar(
         elevation: 0,
         centerTitle: true,
@@ -134,7 +134,7 @@ class _CurrentTeamInfoScreenState extends State<CurrentTeamInfoScreen>
                     Icon(
                       Icons.group_outlined,
                       size: 80,
-                      color: Colors.grey.shade400,
+                      color: const Color.fromARGB(255, 255, 255, 255),
                     ),
                     const SizedBox(height: 12),
                     Text(

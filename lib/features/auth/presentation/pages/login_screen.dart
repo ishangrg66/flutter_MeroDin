@@ -48,7 +48,7 @@ class _LoginPageState extends State<LoginPage> {
               gradient: LinearGradient(
                 colors: [
                   Color.fromARGB(255, 90, 143, 208),
-                  Color.fromARGB(255, 139, 139, 211),
+                  Color.fromARGB(255, 79, 79, 123),
                 ],
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
@@ -56,7 +56,7 @@ class _LoginPageState extends State<LoginPage> {
             ),
             child: SafeArea(
               child: Padding(
-                padding: const EdgeInsets.all(16),
+                padding: const EdgeInsets.all(24),
                 child: Form(
                   key: _formKey,
                   child: Column(
@@ -73,8 +73,8 @@ class _LoginPageState extends State<LoginPage> {
                               shape: BoxShape.circle,
                               gradient: const LinearGradient(
                                 colors: [
-                                  Color(0xFF0072FF),
-                                  Color.fromARGB(255, 139, 139, 211),
+                                  Color.fromARGB(255, 90, 143, 208),
+                                  Color.fromARGB(255, 79, 79, 123),
                                 ],
                                 begin: Alignment.topLeft,
                                 end: Alignment.bottomRight,
@@ -99,14 +99,33 @@ class _LoginPageState extends State<LoginPage> {
                           Text(
                             'मेरो दिन',
                             style: GoogleFonts.montserrat(
-                              fontWeight: FontWeight.w800,
-                              fontSize: 38,
-                              color: const Color.fromARGB(255, 255, 255, 255),
-                              // letterSpacing: ,
-                              shadows: [
+                              fontWeight: FontWeight.w900,
+                              fontSize: 44,
+                              letterSpacing: 2,
+                              // Add gradient color effect
+                              foreground: Paint()
+                                ..shader = const LinearGradient(
+                                  colors: [
+                                    Color.fromARGB(
+                                      255,
+                                      203,
+                                      239,
+                                      208,
+                                    ), // soft blue
+                                    Color.fromARGB(
+                                      255,
+                                      255,
+                                      255,
+                                      255,
+                                    ), // teal blend
+                                  ],
+                                  begin: Alignment.topLeft,
+                                  end: Alignment.bottomRight,
+                                ).createShader(Rect.fromLTWH(0, 0, 200, 70)),
+                              shadows: const [
                                 Shadow(
-                                  offset: Offset(2, 2),
-                                  blurRadius: 3,
+                                  offset: Offset(2, 3),
+                                  blurRadius: 6,
                                   color: Colors.black45,
                                 ),
                               ],

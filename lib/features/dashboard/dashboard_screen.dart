@@ -15,6 +15,7 @@ import 'package:mero_din_app/features/profile/presentation/bloc/current_user_eve
 import 'package:mero_din_app/features/profile/presentation/bloc/current_user_state.dart';
 import 'package:mero_din_app/features/schedule/presentation/pages/schedule_page.dart';
 import 'package:mero_din_app/features/teamInfo/presentation/bloc/team_info_state.dart';
+
 import 'package:nepali_utils/nepali_utils.dart';
 
 class DashboardPage extends StatefulWidget {
@@ -167,6 +168,7 @@ class _DashboardPageState extends State<DashboardPage> {
                   ),
                 ),
               ),
+
               actions: [
                 IconButton(
                   icon: const Icon(Icons.logout_outlined, color: Colors.white),
@@ -352,7 +354,6 @@ class _DashboardPageState extends State<DashboardPage> {
                                       child: Row(
                                         mainAxisSize: MainAxisSize.min,
                                         children: [
-                                          // Active status with icon and text
                                           if (team.statusName.toLowerCase() ==
                                               'active') ...[
                                             const Icon(
@@ -369,7 +370,24 @@ class _DashboardPageState extends State<DashboardPage> {
                                                 fontWeight: FontWeight.w600,
                                               ),
                                             ),
-                                          ] else
+                                          ] else if (team.statusName
+                                                  .toLowerCase() ==
+                                              'inactive') ...[
+                                            const Icon(
+                                              Icons.cancel_rounded,
+                                              color: Colors.red,
+                                              size: 20,
+                                            ),
+                                            const SizedBox(width: 4),
+                                            const Text(
+                                              'Inactive',
+                                              style: TextStyle(
+                                                fontSize: 14,
+                                                color: Colors.red,
+                                                fontWeight: FontWeight.w600,
+                                              ),
+                                            ),
+                                          ] else ...[
                                             Text(
                                               team.statusName,
                                               overflow: TextOverflow.ellipsis,
@@ -379,12 +397,7 @@ class _DashboardPageState extends State<DashboardPage> {
                                                 fontWeight: FontWeight.w500,
                                               ),
                                             ),
-                                          const SizedBox(width: 8),
-                                          const Icon(
-                                            Icons.arrow_forward_ios,
-                                            color: Colors.grey,
-                                            size: 18,
-                                          ),
+                                          ],
                                         ],
                                       ),
                                     ),
